@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code - Women's Day</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fae1dd 0%, #ffc8dd 50%, #ffafcc 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .qr-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #d62828;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .instruction {
+            margin-top: 30px;
+            color: #d62828;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .hearts {
+            margin-top: 20px;
+            font-size: 30px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: #d62828;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: #b91e1e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(214, 40, 40, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="qr-container">
+        <h1>💝 Chúc Mừng Ngày Phụ Nữ 💝</h1>
+        <p>Quét mã QR để xem thiệp chúc mừng đặc biệt!</p>
+        <div id="qrcode"></div>
+        <div class="instruction">
+            👆 Quét mã QR này để mở thiệp
+        </div>
+        <div class="hearts">❤️ 💕 💖</div>
+        <a href="index.html" class="button">Hoặc nhấn vào đây</a>
+    </div>
+
+    <!-- Thư viện QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // URL GitHub Pages - ai cũng có thể truy cập từ mọi nơi
+        const publicUrl = "https://lehongnghia.github.io/20_10/index.html";
+        
+        // Tạo QR code
+        new QRCode(document.getElementById("qrcode"), {
+            text: publicUrl,
+            width: 256,
+            height: 256,
+            colorDark: "#d62828",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        // Cập nhật nút link
+        document.querySelector('.button').href = publicUrl;
+    </script>
+</body>
+</html>
